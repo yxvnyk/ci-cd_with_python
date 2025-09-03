@@ -28,4 +28,4 @@ jobs:
       - name: Run test
         run: |
           source myapp/bin/activate
-          pytest      
+          PYTHONPATH=$(pwd) pytest

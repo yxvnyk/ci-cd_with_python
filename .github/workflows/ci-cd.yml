@@ -26,5 +26,6 @@ jobs:
           source myapp/bin/activate
           flake8 --exclude=myapp/lib myapp tests
       - name: Run test
-        run: PYTHONPATH= .pytest
-      
+        run: |
+          source myapp/bin/activate
+          pytest      

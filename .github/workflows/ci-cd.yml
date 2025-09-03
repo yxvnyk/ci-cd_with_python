@@ -1,0 +1,29 @@
+name: CI
+
+on:
+   push: # action which trigger
+    branches: [main]
+  pull_request: [main]
+
+jobs:
+  test: # job name
+    runs-on: ubuntu-latest 
+    steps: # what todo
+      - name: Checkout # name of first step
+        uses: actions/checkout@v3 # use github action which dpwnload our repo
+      - name: Setup Python # second step 
+        uses: actions/setup-python@v4 # action whih set up python
+        with:
+          python-version: 3.12
+      - name: Install deps
+        run: |
+          source myapp/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Lint
+        run: |
+          source myapp/bin/activate
+          flake8 .
+      - name: Run test
+        run: PYTHONPATH= .pytest
+      

@@ -24,7 +24,7 @@ jobs:
       - name: Lint
         run: |
           source myapp/bin/activate
-          lake8 --exclude=myapp/lib myapp tests
+          flake8 --exclude=myapp/lib myapp tests
       - name: Run test
         run: PYTHONPATH= .pytest
       

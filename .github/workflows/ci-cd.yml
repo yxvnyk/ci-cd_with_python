@@ -2,8 +2,8 @@ name: CI
 
 on:
    push: # action which trigger
-    branches: [main]
-  pull_request: [main]
+   branches: [main]
+   pull_request: [main]
 
 jobs:
   test: # job name

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+if git diff --cached --name-only | grep '\.log$'; then
+  echo "There are .log files!"
+  exit 1
+fi
+
+echo "pre-commit passed!"
+
+
